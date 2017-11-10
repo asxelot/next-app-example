@@ -1,0 +1,45 @@
+{
+  "name": "next-ssr",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "test": "jest --watch --env=jsdom"
+  },
+  "jest": {
+    "setupFiles": ["<rootDir>/shim.js", "<rootDir>/setupTests.js"],
+    "testRegex": "/__tests__/.*\\.test\\.js?$"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cxs": "^6.1.0",
+    "next": "^4.1.4",
+    "next-redux-saga": "^1.0.1",
+    "next-redux-wrapper": "^1.3.4",
+    "prop-types": "^15.6.0",
+    "react": "^16.1.0",
+    "react-dom": "^16.1.0",
+    "react-redux": "^5.0.6",
+    "redux": "^3.7.2",
+    "redux-saga": "^0.16.0"
+  },
+  "devDependencies": {
+    "babel-jest": "^21.2.0",
+    "enzyme": "^3.1.1",
+    "enzyme-adapter-react-16": "^1.0.4",
+    "eslint": "^4.2.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-import-resolver-node": "^0.3.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.1.0",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "jest": "^21.2.1",
+    "redux-devtools-extension": "2.13.2"
+  }
+}
