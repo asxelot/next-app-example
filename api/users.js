@@ -1,7 +1,7 @@
-import Http from './http'
+import Http from '../services/http'
 
 class Api extends Http {
-  getUsers () {
+  getAll () {
     return this._get('https://jsonplaceholder.typicode.com/users')
   }
 }

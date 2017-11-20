@@ -1,4 +1,8 @@
 {
+  "parser": "babel-eslint",
   "extends": "standard",
-  "plugins": ["import"]
+  "plugins": ["import", "react"],
+  "rules": {
+    "react/jsx-uses-vars": 2
+  }
 }

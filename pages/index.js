@@ -1,18 +1,27 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
-import cxs from 'cxs'
 
 import { connect } from '../redux/store'
-import * as counterActions from '../redux/actions/counter'
 import * as usersActions from '../redux/actions/users'
+import * as counterActions from '../redux/actions/counter'
 
-class Index extends React.Component {
+import Header from '../components/Header'
+import Counter from '../components/Counter'
+
+export class Index extends React.Component {
+  static propTypes = {
+    users: PropTypes.arrayOf(PropTypes.object).isRequired,
+    counter: PropTypes.number.isRequired,
+    increment: PropTypes.func.isRequired,
+    decrement: PropTypes.func.isRequired
+  }
+
   static async getInitialProps ({ store }) {
     const state = store.getState()
 
     if (!state.users.users.length) {
-      store.dispatch(usersActions.getUsers())
+      await store.dispatch(usersActions.getUsers())
     }
   }
 
@@ -21,32 +30,20 @@ class Index extends React.Component {
 
     return (
       <div>
-        <h1 className={cx.header}>Hello world</h1>
-        <p>counter {counter}</p>
-        <button onClick={increment}>+</button>
-        <button onClick={decrement}>-</button>
+        <Header />
+        <Counter
+          counter={counter}
+          increment={increment}
+          decrement={decrement}
+        />
         <ul>
           {users.map(user =>
-            <li key={user.id}>{user.name}</li>
+            <li className='user' key={user.id}>{user.name}</li>
           )}
         </ul>
       </div>
     )
   }
-}
-
-Index.propTypes = {
-  users: PropTypes.arrayOf(PropTypes.object),
-  counter: PropTypes.number
-}
-
-const cx = {
-  header: cxs({
-    color: 'red',
-    ':hover': {
-      color: 'blue'
-    }
-  })
 }
 
 export default connect(

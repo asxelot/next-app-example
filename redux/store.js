@@ -1,29 +1,22 @@
-import { createStore, applyMiddleware, combineReducers } from 'redux'
-import { composeWithDevTools } from 'redux-devtools-extension'
 import withRedux from 'next-redux-wrapper'
 import nextReduxSaga from 'next-redux-saga'
 import createSagaMiddleware from 'redux-saga'
+import { createStore, applyMiddleware } from 'redux'
+import { composeWithDevTools } from 'redux-devtools-extension'
 
-import counter from './reducers/counter'
-import users from './reducers/users'
-
-import usersSaga from './sagas/users'
-
-export const reducer = combineReducers({
-  counter,
-  users
-})
+import rootSaga from './sagas'
+import reducers from './reducers'
 
 const sagaMiddleware = createSagaMiddleware()
 
-export const initStore = initialState => {
+const initStore = initialState => {
   const store = createStore(
-    reducer,
+    reducers,
     initialState,
     composeWithDevTools(applyMiddleware(sagaMiddleware))
   )
 
-  store.sagaTask = sagaMiddleware.run(usersSaga)
+  store.sagaTask = sagaMiddleware.run(rootSaga)
 
   return store
 }
