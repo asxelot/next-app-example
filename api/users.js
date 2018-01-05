@@ -2,7 +2,7 @@ import Http from '../services/http'
 
 class Api extends Http {
   getAll () {
-    return this._get('https://jsonplaceholder.typicode.com/users')
+    return this._get('http://localhost:3000/users')
   }
 }
 

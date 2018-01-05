@@ -1,15 +1,45 @@
 {
   "env": {
     "development": {
-      "presets": "next/babel"
+      "presets": "next/babel",
+      "plugins": [
+        [
+          "css-modules-transform", {
+            "extensions": [".css", ".scss"],
+            "append": [ "postcss-cssnext" ],
+            "extractCss": "./static/css/bundle.min.css",
+            "preprocessCss": "./pre-processor.js"
+          }
+        ]
+      ]
     },
     "production": {
-      "presets": "next/babel"
+      "presets": "next/babel",
+      "plugins": [
+        [
+          "css-modules-transform", {
+            "extensions": [".css", ".scss"],
+            "append": [ "postcss-cssnext" ],
+            "extractCss": "./static/css/bundle.min.css",
+            "preprocessCss": "./pre-processor.js"
+          }
+        ]
+      ]
     },
     "test": {
       "presets": [
         ["env", { "modules": "commonjs" }],
         "next/babel"
+      ],
+      "plugins": [
+        [
+          "css-modules-transform", {
+            "extensions": [".css", ".scss"],
+            "append": [ "postcss-cssnext" ],
+            "extractCss": "./static/css/bundle.min.css",
+            "preprocessCss": "./pre-processor.js"
+          }
+        ]
       ]
     }
   }

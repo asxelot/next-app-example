@@ -8,21 +8,11 @@ import * as counterActions from '../redux/actions/counter'
 
 import Header from '../components/Header'
 import Counter from '../components/Counter'
+import UserForm from '../components/UserForm'
 
 export class Index extends React.Component {
-  static propTypes = {
-    users: PropTypes.arrayOf(PropTypes.object).isRequired,
-    counter: PropTypes.number.isRequired,
-    increment: PropTypes.func.isRequired,
-    decrement: PropTypes.func.isRequired
-  }
-
   static async getInitialProps ({ store }) {
-    const state = store.getState()
-
-    if (!state.users.users.length) {
-      await store.dispatch(usersActions.getUsers())
-    }
+    await store.dispatch(usersActions.getUsers())
   }
 
   render () {
@@ -36,14 +26,22 @@ export class Index extends React.Component {
           increment={increment}
           decrement={decrement}
         />
+        <UserForm />
         <ul>
           {users.map(user =>
-            <li className='user' key={user.id}>{user.name}</li>
+            <li className='user' key={user.id}>{user.firstname} {user.lastname}</li>
           )}
         </ul>
       </div>
     )
   }
+}
+
+Index.propTypes = {
+  users: PropTypes.arrayOf(PropTypes.object).isRequired,
+  counter: PropTypes.number.isRequired,
+  increment: PropTypes.func.isRequired,
+  decrement: PropTypes.func.isRequired
 }
 
 export default connect(

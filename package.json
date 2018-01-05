@@ -14,7 +14,10 @@
       "<rootDir>/__tests__/shim.js",
       "<rootDir>/__tests__/setup.js"
     ],
-    "testRegex": "/__tests__/.*\\.test\\.js?$"
+    "testRegex": "/__tests__/.*\\.test\\.js?$",
+    "moduleNameMapper": {
+      ".scss$": "pre-processor.js"
+    }
   },
   "keywords": [],
   "author": "",
@@ -35,6 +38,7 @@
   "devDependencies": {
     "babel-eslint": "^8.0.2",
     "babel-jest": "^21.2.0",
+    "babel-plugin-css-modules-transform": "^1.2.1",
     "enzyme": "^3.1.1",
     "enzyme-adapter-react-16": "^1.0.4",
     "eslint": "^4.2.0",
@@ -46,6 +50,10 @@
     "eslint-plugin-react": "^7.4.0",
     "eslint-plugin-standard": "^3.0.1",
     "jest": "^21.2.1",
-    "redux-devtools-extension": "2.13.2"
+    "node-sass": "^4.5.0",
+    "postcss": "^5.2.16",
+    "postcss-cssnext": "^2.10.0",
+    "redux-devtools-extension": "2.13.2",
+    "sass-lint": "^1.12.1"
   }
 }

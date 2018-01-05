@@ -11,6 +11,11 @@ export default class Http {
    * @memberof Http
    */
   async _request (method, url, body) {
+    // mock response for tests
+    if (process.env.NODE_ENV === 'test') {
+      return { success: true, fake: true }
+    }
+
     try {
       const response = await fetch(url, {
         method,

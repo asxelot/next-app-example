@@ -3,6 +3,6 @@ import Header from '../../components/Header'
 
 describe('<Header />', () => {
   it('should renders', () => {
-    shallow(<Header />)
+    expect(shallow(<Header />)).toHaveLength(1)
   })
 })

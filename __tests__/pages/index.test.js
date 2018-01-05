@@ -30,7 +30,7 @@ describe('<Index />', () => {
   })
 
   it('should contains <Counter />', () => {
-    const counterProps = _.pick(props, ['counter', 'increment', 'decrement'])
+    const counterProps = _.pick(props, 'counter', 'increment', 'decrement')
     expect(wrapper.contains(<Counter {...counterProps} />)).toBe(true)
   })
 
