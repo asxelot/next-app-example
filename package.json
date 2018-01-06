@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "next --port=8080",
+    "dev": "json-server db.json & next --port=8080",
     "build": "next build",
     "start": "next start",
     "test": "jest --watch --env=jsdom"
@@ -50,6 +50,7 @@
     "eslint-plugin-react": "^7.4.0",
     "eslint-plugin-standard": "^3.0.1",
     "jest": "^21.2.1",
+    "json-server": "^0.12.1",
     "node-sass": "^4.5.0",
     "postcss": "^5.2.16",
     "postcss-cssnext": "^2.10.0",
