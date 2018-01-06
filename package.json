@@ -7,7 +7,7 @@
     "dev": "json-server db.json & next --port=8080",
     "build": "next build",
     "start": "next start",
-    "test": "jest --watch --env=jsdom"
+    "test": "jest --watchAll --env=jsdom"
   },
   "jest": {
     "setupFiles": [
