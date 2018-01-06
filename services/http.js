@@ -1,12 +1,16 @@
 import fetch from 'isomorphic-fetch'
 
+import config from '../config'
+
 export default class Http {
+  host = config.host
+
   /**
    * http request wrapper
    *
    * @param {string} method
    * @param {string} url
-   * @param {body} body
+   * @param {Object} body
    * @returns {Promise<any>} json response
    * @memberof Http
    */
@@ -46,7 +50,7 @@ export default class Http {
    * @returns {Promise<any>} json response
    * @memberof Http
    */
-  _get (url) {
+  get (url) {
     return this._request('GET', url)
   }
 
@@ -54,11 +58,11 @@ export default class Http {
    * POST request
    *
    * @param {string} url
-   * @param {body} body
+   * @param {Object} body
    * @returns {Promise<any>} json response
    * @memberof Http
    */
-  _post (url, body) {
+  post (url, body) {
     return this._request('POST', url, body)
   }
 
@@ -66,11 +70,11 @@ export default class Http {
    * PUT request
    *
    * @param {string} url
-   * @param {body} body
+   * @param {Object} body
    * @returns {Promise<any>} json response
    * @memberof Http
    */
-  _put (url, body) {
+  put (url, body) {
     return this._request('PUT', url, body)
   }
 
@@ -81,7 +85,7 @@ export default class Http {
    * @returns {string}
    * @memberof Http
    */
-  _toParams (o) {
+  toParams (o) {
     return '?' + Object.keys(o).map(k => `${k}=${o[k]}`).join('&')
   }
 }
