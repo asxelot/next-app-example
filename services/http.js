@@ -33,7 +33,6 @@ export default class Http {
         return await response.json()
       } else {
         const error = new Error(response.statusText)
-        error.response = await response.json()
         throw error
       }
     } catch (error) {
